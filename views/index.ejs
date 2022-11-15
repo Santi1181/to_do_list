@@ -1,0 +1,24 @@
+<div class="row justify-content-center">
+
+    <div class="col-6">
+        <h2 class="text-center">Mi Lista</h2>
+
+        <% tareas.forEach(tarea=> { %>
+
+            <div class="alert alert-secondary" role="alert">
+                <%= tarea.nombre_tarea %>
+
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+
+                        <a href="/tareas/<%= tarea.id %>/edit" class="btn btn-warning">✏️</a>
+
+                        <form action="/tareas/<%= tarea.id %>/delete?_method=DELETE" method="post">
+                            <button type="submit" class="btn btn-danger">❌</button>
+                        </form>
+                    </div>
+            </div>
+
+            <% }) %>
+    </div>
+
+</div>

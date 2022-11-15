@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+
+    <div class="col-6">
+        <h2 class="text-center">Modificar Tarea</h2>
+
+        <% if (typeof errors !='undefined' ) { %>
+            <ul class="list-unstyled text-center text-danger">
+                <% errors.forEach(error=> { %>
+                    <li>
+                        <%= error.msg %>
+                    </li>
+
+                <% }) %>
+            </ul>
+        <% } %>
+
+
+       
+
+        <form action="/tareas/update?_method=PUT" method="post">
+
+        <div>
+        <label for="tarea" class="form-label">Descripción</label>
+        <input type="text" id="tarea" name="tarea" class="form-control" value="<%= tareas.nombre_tarea %>">
+        <input type="text" id="id" name="id" class="form-control invisible" value="<%= tareas.id %>" >
+        </div>
+        
+        <button class="btn btn-primary mt-3" type="submit">Enviar</button>
+
+        </form>
+
+    </div>
+</div>
