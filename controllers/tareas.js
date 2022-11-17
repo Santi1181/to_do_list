@@ -1,4 +1,5 @@
 const connection = require('../db');
+const { check ,body, validationResult } = require('express-validator');
 
 module.exports.index = (req,res) => {
     res.render('tareas/index', {values: {}});
@@ -26,5 +27,21 @@ module.exports.delete = (req,res) => {
          
          res.redirect('/');
      })
-    
 } 
+
+module.exports.create = (req,res) => {
+        const errors = validationResult(req);
+        console.log(req.body, errors);
+    
+        if (errors.isEmpty()) {
+            connection.query('insert into tareas set ?', {
+                nombre_tarea: req.body.tarea
+            }, (error,results) => {
+                if (error) {throw error}
+            })
+            
+            res.redirect('/');
+        } else {
+            res.render('tareas/index' , {values: req.body,errors: errors.array()})
+        }
+}

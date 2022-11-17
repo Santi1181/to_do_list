@@ -11,3 +11,4 @@ Lista de Tareas Pendientes
     - method-override: para sobreescribir metodos de envío según corresponda
     - mySQL: para realizar la conexión a la base de datos
     - laragon: para crear la base de datos
+    - Bootstrap: Para aplicar estilos
