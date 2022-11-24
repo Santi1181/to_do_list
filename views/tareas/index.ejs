@@ -1,5 +1,4 @@
 <div class="row justify-content-center">
-
     <div class="col-6">
         <h2 class="text-center">Nueva Tarea</h2>
 
@@ -14,19 +13,14 @@
             </ul>
         <% } %>
 
+            <form action="" method="post">
+                <div>
+                    <label for="tarea" class="form-label">Descripción</label>
+                     <input type="text" id="tarea" name="tarea" class="form-control" value="<%= values.tarea %>">
+                </div>
 
-       
+                <button class="btn btn-primary mt-3" type="submit" id="enviar">Enviar</button>
 
-        <form action="" method="post">
-
-        <div>
-        <label for="tarea" class="form-label">Descripción</label>
-        <input type="text" id="tarea" name="tarea" class="form-control" value="<%= values.tarea %>">
-        </div>
-        
-        <button class="btn btn-primary mt-3" type="submit">Enviar</button>
-
-        </form>
-
+            </form>
     </div>
 </div>
