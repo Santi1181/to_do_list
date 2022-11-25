@@ -27,6 +27,9 @@
     "nodemon": "^2.0.20"
   },
   "devDependencies": {
-    "cypress-plugin-tab": "^1.0.5"
+    "cypress-plugin-tab": "^1.0.5",
+    "eslint": "^8.28.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0"
   }
 }
