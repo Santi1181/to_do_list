@@ -8,38 +8,62 @@ module.exports.index = (req, res) => {
 };
 
 module.exports.edit = (req, res) => {
-  connection.query('select * from tareas where id = ?', [req.params.id], (error, results) => {
-    if (error) { throw error; }
+  connection.query(
+    'select * from tareas where id = ?',
+    [req.params.id],
+    (error, results) => {
+      if (error) {
+        throw error;
+      }
 
-    res.render('tareas/edit', { tareas: results[0] });
-  });
+      res.render('tareas/edit', { tareas: results[0] });
+    },
+  );
 };
 
 module.exports.update = (req, res) => {
-  connection.query('update tareas set ? where id = ?', [{ nombre_tarea: req.body.tarea }, req.body.id], (error) => {
-    if (error) { throw error; }
+  connection.query(
+    'update tareas set ? where id = ?',
+    [{ nombre_tarea: req.body.tarea }, req.body.id],
+    (error) => {
+      if (error) {
+        throw error;
+      }
 
-    res.redirect('/');
-  });
+      res.redirect('/');
+    },
+  );
 };
 
 module.exports.delete = (req, res) => {
-  connection.query('delete from tareas where id = ?', [req.params.id], (error) => {
-    if (error) { throw error; }
+  connection.query(
+    'delete from tareas where id = ?',
+    [req.params.id],
+    (error) => {
+      if (error) {
+        throw error;
+      }
 
-    res.redirect('/');
-  });
+      res.redirect('/');
+    },
+  );
 };
 
 module.exports.create = (req, res) => {
   const errors = validationResult(req);
 
   if (errors.isEmpty()) {
-    connection.query('insert into tareas set ?', {
-      nombre_tarea: req.body.tarea,
-    }, (error) => {
-      if (error) { throw error; }
-    });
+    connection.query(
+      'insert into tareas set ?',
+      {
+        nombre_tarea: req.body.tarea,
+      },
+      (error) => {
+        if (error) {
+          throw error;
+        }
+      },
+    );
 
     res.redirect('/');
   } else {

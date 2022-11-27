@@ -1,15 +1,16 @@
 const mysql = require('mysql');
 
 const connection = mysql.createConnection({
-    host: 'localhost', // 127.0.0.1
-    user: 'root',
-    password: '',
-    database: 'lista_tareas'
+  host: 'localhost', // 127.0.0.1
+  user: 'root',
+  password: '',
+  database: 'lista_tareas',
 });
 
-connection.connect(error => {
-    if (error) {throw error}
-
+connection.connect((error) => {
+  if (error) {
+    throw error;
+  }
 });
 
 // connection.query('select * from tareas', (error,results) => {
@@ -18,4 +19,4 @@ connection.connect(error => {
 //     console.log(results);
 // });
 
-module.exports = connection
+module.exports = connection;
